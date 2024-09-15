@@ -146,11 +146,13 @@ namespace Inviter
             {
                 Config.Eureka = true;
                 Config.Save();
+                CommandHandler("", "on");
             }
             else
             {
                 Config.Eureka = false;
                 Config.Save();
+                CommandHandler("", "off");
             }
             name2CID.Clear();
         }
@@ -372,6 +374,7 @@ namespace Inviter
                                 {
                                     timedRecruitment.runUntil = 0;
                                 }
+                                CommandHandler("", "off");
                                 return;
                             }
                             else
@@ -400,6 +403,7 @@ namespace Inviter
                             {
                                 Log($"Reached target amound of invitations, won't invite {timedRecruitment.InvitationAttempts}/{timedRecruitment.MaxInvitations}");
                                 timedRecruitment.runUntil = 0;
+                                CommandHandler("", "off");
                                 return;
                             }
                             else
